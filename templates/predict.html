@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Inventry Management</title>
+</head>
+<style>
+    body{
+        background-image:url({{url_for ('static', filename = 'inventory9.jpg')}});
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-color: transparent;
+    }
+      h1 {
+          color: red;
+          font-size:60px;
+          text-shadow: 2px 2px 2px yellow , 0 0 30px green;
+      }
+          .submit {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 12px 25px;
+          font: bold 20px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      .submit:hover {
+           background-color: #4CAF50;
+           color: white;
+      }
+    </style>
+<body style="text-align:center">
+ <div>
+	<h1>Predicting Minimum Inventry for</h1>
+     <h1>Product Type-<u><i>{{res[0]}}</i></u> is</h1>
+     <h1><u><i>{{res[1]}}</i></u> units</h1>
+     <br><br>
+
+</div>
+</body>
+</html>

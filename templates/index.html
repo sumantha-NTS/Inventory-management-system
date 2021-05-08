@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Inventory Management</title>
+</head>
+<style>
+    body{
+        background-image:url({{url_for ('static', filename = 'inventory9.jpg')}});
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-color: transparent;
+    }
+
+      input[type=submit] {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 12px 25px;
+          font: bold 20px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      .submit:hover {
+           background-color: #4CAF50;
+           color: white;
+      }
+      input[type="number"] {
+          font-family:courier;
+          height: 20px;
+          width: 190px;
+          color:white;
+          border-radius: 10px;
+          text-align: center;
+      }
+      input[type="number"]::placeholder {
+          font-weight: lighter;
+          text-align: center;
+      }
+
+      h1 {
+          font-size:50px;
+          color: red;
+          text-shadow: 2px 2px 2px yellow , 0 0 30px green;
+      }
+      select {
+           width: 200px;
+           text-align-last:center;
+           border-radius: 10px;
+           font-family:courier;
+           font-size:20px;
+           font-weight: bold;
+           height: 35px;
+      }
+
+    </style>
+<body style="text-align:center;">
+ <div>
+	<h1><u>Inventory Management System</u></h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('analysis')}}" method="post">
+        <label for="analysis" style="font-size:130%;"><h2 style="color:yellow"><u>Inventory Analysis:</u></h2></label>
+        <select name="analysis" id="analysis" >
+            <option value="weekly">Weekly</option>
+            <option value="monthly">Monthly</option>
+            <option value="quarterly">Quarterly</option>
+        </select><br><br>
+
+        <input class="submit" type="submit" >
+    </form>
+ </div>
+</body>
+</html>

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Inventry Management</title>
+</head>
+<style>
+    body{
+        background-image:url({{url_for ('static', filename = 'inventory9.jpg')}});
+        background-repeat:no-repeat;
+        background-size: cover;
+        background-color: transparent;
+    }
+
+      input[type=submit] {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 12px 25px;
+          font: bold 20px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      .submit:hover {
+           background-color: #4CAF50;
+           color: white;
+      }
+      input[type="number"] {
+          font-family:courier;
+          height: 25px;
+          width: 190px;
+          font-size:15px;
+          color:black;
+          border-radius: 10px;
+          text-align: center;
+      }
+      input[type="number"]::placeholder {
+          font-weight: lighter;
+          text-align: center;
+      }
+
+      h1 {
+          color: red;
+          text-shadow: 2px 2px 2px yellow , 0 0 30px green;
+      }
+      select {
+           width: 200px;
+           text-align-last:center;
+           border-radius: 10px;
+           font-family:courier;
+           font-size:18px;
+           font-weight: bold;
+           height: 30px;
+      }
+    </style>
+<body style="text-align:center; font-size:20px; color:yellow;">
+ <div>
+	<h1><u>Inventry Management System</u></h1>
+     <h2><u>Quarterly Inventry</u></h2>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" id="Home">
+
+        <label for="Quarter" style="font-size:130%;"><b>Select Quarter :</b></label><br>
+        <select name="Quarter" id="Quarter" >
+            <option value="1">1st Quarter</option>
+            <option value="2">2nd Quarter</option>
+            <option value="3">3rd Quarter</option>
+            <option value="4">4th Quarter</option>
+        </select><br><br>
+
+        <label for="product_type" style="font-size:130%;"><b>Enter Product Type :</b></label><br>
+        <input type="number" name="product_type" placeholder="Enter the value" required="required" min="1" max="1115"/><br><br>
+
+        <label for="promotion" style="font-size:130%;"><b>Promotion Applied :</b></label><br>
+        <select name="promotion" id="promotion" >
+            <option value="1">Yes</option>
+            <option value="0">No</option>
+        </select><br><br>
+
+        <label for="Holiday" style="font-size:130%;"><b>Total No. of Generic Holidays in Quarter :</b></label><br>
+        <input type="number" name="Holiday" placeholder="Enter the value" min="0" max="72" required="required"/><br><br>
+
+        <input class="submit" type="submit" >
+    </form>
+ </div>
+</body>
+</html>
