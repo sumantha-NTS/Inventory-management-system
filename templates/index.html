@@ -12,7 +12,7 @@
         background-color: transparent;
     }
 
-      input[type=submit] {
+    input[type=submit] {
           background-color: #0066A2;
           border-color: #0066A2;
           border-style: outset;
@@ -23,30 +23,30 @@
           font: bold 20px arial, sans-serif;
           margin: 4px 2px;
           cursor: pointer;
-      }
-      .submit:hover {
+    }
+    submit:hover {
            background-color: #4CAF50;
            color: white;
-      }
-      input[type="number"] {
+    }
+    input[type="number"] {
           font-family:courier;
           height: 20px;
           width: 190px;
           color:white;
           border-radius: 10px;
           text-align: center;
-      }
-      input[type="number"]::placeholder {
+    }
+    input[type="number"]::placeholder {
           font-weight: lighter;
           text-align: center;
-      }
+    }
 
-      h1 {
+    h1 {
           font-size:50px;
           color: red;
           text-shadow: 2px 2px 2px yellow , 0 0 30px green;
-      }
-      select {
+    }
+    select {
            width: 200px;
            text-align-last:center;
            border-radius: 10px;
@@ -54,12 +54,34 @@
            font-size:20px;
            font-weight: bold;
            height: 35px;
+    }
+    button {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 8px 10px;
+          font: bold 15px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+    }
+    button:hover {
+        background-color: #4CAF50;
+        color: white;
       }
-
     </style>
 <body style="text-align:center;">
  <div>
 	<h1><u>Inventory Management System</u></h1>
+
+     <a href="{{ url_for('about')}}">
+         <button id="button">About</button>
+     </a>
 
      <!-- Main Input For Receiving Query to our ML -->
     <form action="{{ url_for('analysis')}}" method="post">

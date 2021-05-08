@@ -18,6 +18,10 @@ quarter_model = pickle.load(open('pickle_files/quarter.pkl','rb'))
 def welcome():
     return render_template('index.html')
 
+@app.route('/about')
+def about():
+    return render_template('about.html')
+
 @app.route('/analysis',methods=['POST'])
 def analysis():
     global y;
