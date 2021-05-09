@@ -2,40 +2,44 @@
 Efficient Inventory Management System
 Inventory management is a systematic approach to sourcing, storing, and selling inventory - both raw materials (components) and finished goods (products). In business terms, inventory management means the right stock, at the right levels, in the right place, at the right time, and at the right cost as well as price.
 Poor inventory management can cost you time, money and your business. It is among the top reasons why small businesses fail.
-Causes for Poor inventory management :
+## Causes for Poor inventory management :
 Poor Forecasting
 Excessive stock pile-up
 Supply chain complexity
 Inefficient order management
 Managing warehouse space
 
-Effects of Poor inventory Management :
+## Effects of Poor inventory Management :
 Increased Costs
 Unsatisfied Customer
 Delayed delivery of orders
-Imbalanced inventory
+Imbalanced inventory \
 
 In order to avoid the poor inventory and to upscale the business, the machine learning comes into picture where the analysis is carried out based on the past sales information and with the help of algorithms to predict the future inventory.
-The main advantages of efficient inventory management are:
+
+## Main advantages of efficient inventory management are:
 Avoidance of stock-outs and excess stocks
 Improved business negotiations
 Ability to make more profitable business decisions
 Reduced risk of overselling
 
 This project will explain how to manage the inventory efficiently with the help of a sample dataset.
-Business Objective :
+
+## Business Objective :
 
 Poor inventory management leads to a loss in sales which in turn paints an inaccurate picture of lower demand for certain items, making future order predictions based on that past data inherently inaccurate.
 Instead smart retailers use real-time data to move inventory where it's needed before it's too late.
 The objective of this project is to make inventory management efficient using predictive analysis.
-2. Project Architecture / project flow :
+
+## Project Architecture / project flow :
 Project flow of this project is defined below.
-3. Dataset details :
+
+## Dataset details :
 Two datasets has been considered for this project and they are
 Product details
 Product Revenue details
 
-Product details dataset:
+## Product details dataset:
 Product dataset consists of 1115 product type with cost per unit and time for delivery. The sample data of this dataset is given below
 Sample data for product datasetProduct Revenue dataset:
 Revenue dataset consists of 10,17,209 records with daily data of 1115 products. The dataset consists of other columns like revenue, store status, promotion applied, Generic holiday etc. The total records in revenue dataset will constitutes for 3 years 10months data. The sample data is shown below.
@@ -61,7 +65,7 @@ The sample data for weekly, monthly and quarterly datasets are shown below 
 Sample data of weekly datasetSample data of monthly datasetSample data of quarterly datasetBar plots are used understand the most sold products in weekly, monthly basis.
 Top 25 Products sold in 1st weekTop 25 Products sold in 1st month6. Feature Selection:
 From exploratory data analysis, it is observed that the educational holiday variable does not affect the revenue. Therefore, the educational holiday variable is neglected while building the model. The other variables are considered for the model building which is explained in next section.
-7. Model Building:
+## Model Building:
 To build the model, the entire dataset is separated into input and output variables.
 The sample code for the same is shown below
 #consider weekly dataset
@@ -96,11 +100,12 @@ Evaluation metric results for weekly dataset XG Boost algorithm is considered 
 Sample code for fitting the model for weekly dataset and predicting for test data is shown below
 #Final Model for weekly dataset
 final_weekly = XGBoostClassifier(n_estimators=500,max_depth=50)
-# Fitting and predicting for test data
+Fitting and predicting for test data
 final_weekly.fit(x_train,y_train).predict(x_test)
 Evaluation metric results for monthly datasetXG Boost algorithm is considered as final model for monthly dataset.
 XG Boost algorithm is considered as final model for quarterly dataset.
-8. Model Deployment:
+
+## Model Deployment:
 Finalized model shown in previous section is considered for app deployment.
 The predicted stocks are added with 10% of buffer to compensate for growth in the industry and the population. 
 The Web API has been developed with the help of Flask framework and deployed in Heroku platform.
@@ -112,20 +117,9 @@ Sample second page, if the user select "weekly" is shown below
 The input from second page is processed and model will predict the result which is represented in results page.
 The representation of second page is shown below.
 Result pageThe result page has one more option of "Export to Excel". This option will take the input from 2nd page and export the result to the excel of all product type (i.e., 1 to 1115) with the respective predicted inventory.
-Link of Web API : 
-Inventory Management
-Edit descriptionefficient-inventory.herokuapp.com
-Git-hub link:
-sumantha-NTS/Inventory-management-system
-Contribute to sumantha-NTS/Inventory-management-system development by creating an account on GitHub.github.com
-9. Conclusion:
+
+### Link of Web API : 
+
+
+## Conclusion:
 Inventory management is a very tedious process if not done properly may lead to loss in sales, customer dissatisfaction etc. Smart retailers will use predictive analysis which will lead better management of stocks, centralized control which intern increase the productivity.
-10. References: 
-sklearn.preprocessing.MinMaxScaler - scikit-learn 0.24.2 documentation
-Edit descriptionscikit-learn.org
-Welcome to Flask - Flask Documentation (1.1.x)
-Welcome to Flask's documentation. Get started with Installation and then get an overview with the Quickstart . There is…flask.palletsprojects.com
-XGBoost Documentation - xgboost 1.5.0-SNAPSHOT documentation
-XGBoost is an optimized distributed gradient boosting library designed to be highly efficient, flexible and portable…xgboost.readthedocs.io
-Documentation
-Technical documentation that describes the Heroku platform.devcenter.heroku.com
