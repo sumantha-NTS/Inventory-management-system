@@ -44,7 +44,7 @@ Sample data for product dataset
 #### Product Revenue dataset:
 Revenue dataset consists of 10,17,209 records with daily data of 1115 products. The dataset consists of other columns like revenue, store status, promotion applied, Generic holiday etc. The total records in revenue dataset will constitutes for 3 years 10months data.\
 
-Features are explaination:
+Features are explained below:
 1. Store Status : It's a categorical feature which explains "Is the store open or closed..?". It has two unique values i.e., open and close.
 2. Promotion Applied : It's a continuous feature which explains "Is the promotion applied for the particular product or not..?". 
 3. Generic Holiday : It's a continuous feature which explains "Is the particular day is a general holiday or not..?".
