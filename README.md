@@ -2,26 +2,27 @@
 Efficient Inventory Management System
 Inventory management is a systematic approach to sourcing, storing, and selling inventory - both raw materials (components) and finished goods (products). In business terms, inventory management means the right stock, at the right levels, in the right place, at the right time, and at the right cost as well as price.
 Poor inventory management can cost you time, money and your business. It is among the top reasons why small businesses fail.
-## Causes for Poor inventory management :
-Poor Forecasting
-Excessive stock pile-up
-Supply chain complexity
-Inefficient order management
-Managing warehouse space
 
-## Effects of Poor inventory Management :
-Increased Costs
-Unsatisfied Customer
-Delayed delivery of orders
-Imbalanced inventory \
+### Causes for Poor inventory management :
+1. Poor Forecasting
+2. Excessive stock pile-up
+3. Supply chain complexity
+4. Inefficient order management
+5. Managing warehouse space
+
+### Effects of Poor inventory Management :
+1. Increased Costs
+2. Unsatisfied Customer
+3. Delayed delivery of orders
+4. Imbalanced inventory \
 
 In order to avoid the poor inventory and to upscale the business, the machine learning comes into picture where the analysis is carried out based on the past sales information and with the help of algorithms to predict the future inventory.
 
-## Main advantages of efficient inventory management are:
-Avoidance of stock-outs and excess stocks
-Improved business negotiations
-Ability to make more profitable business decisions
-Reduced risk of overselling
+### Main advantages of efficient inventory management are:
+1. Avoidance of stock-outs and excess stocks
+2. Improved business negotiations
+3. Ability to make more profitable business decisions
+4. Reduced risk of overselling
 
 This project will explain how to manage the inventory efficiently with the help of a sample dataset.
 
@@ -31,17 +32,16 @@ Poor inventory management leads to a loss in sales which in turn paints an inacc
 Instead smart retailers use real-time data to move inventory where it's needed before it's too late.
 The objective of this project is to make inventory management efficient using predictive analysis.
 
-## Project Architecture / project flow :
-Project flow of this project is defined below.
-
 ## Dataset details :
 Two datasets has been considered for this project and they are
 Product details
 Product Revenue details
 
-## Product details dataset:
+#### Product details dataset:
 Product dataset consists of 1115 product type with cost per unit and time for delivery. The sample data of this dataset is given below
-Sample data for product datasetProduct Revenue dataset:
+Sample data for product dataset 
+
+#### Product Revenue dataset:
 Revenue dataset consists of 10,17,209 records with daily data of 1115 products. The dataset consists of other columns like revenue, store status, promotion applied, Generic holiday etc. The total records in revenue dataset will constitutes for 3 years 10months data. The sample data is shown below.
 Sample data for revenue datasetFeature details:
 Store Status : It's a categorical feature which explains "Is the store open or closed..?". It has two unique values i.e., open and close.
@@ -56,53 +56,36 @@ Boxplot is considered to understand the behavior of Store status and Generic hol
 From the above visualizations, it is observed that there are outliers present in the data.
 To check how many products have high cost per unit and low time for delivery which in term increase the business.
 Products with cost per unit > 1800 and time for delivery < 6 days To check how many products have low cost per unit and high time for delivery which won't make much business.
-Products with cost per unit <100 and time for delivery > 10 days5. Feature Engineering:
+Products with cost per unit <100 and time for delivery > 10 days5. 
+
+## Feature Engineering:
 In order to build the predictive model, two datasets are merged with respect to product type and 'No of sales' new feature has created which represent the units sold.
 i.e., No. of sales = Revenue / cost per unit
 After updating the above features, the sample dataset is shown below.
 After merging two datasetIn general, the inventory of the shop will be refreshed every week or month or sometimes it will be quarterly. In order to analyze the data in terms of weekly, monthly and quarterly basis, the entire dataset is converted into weekly, monthly and quarterly aggregated values respectively.
 The sample data for weekly, monthly and quarterly datasets are shown below 
 Sample data of weekly datasetSample data of monthly datasetSample data of quarterly datasetBar plots are used understand the most sold products in weekly, monthly basis.
-Top 25 Products sold in 1st weekTop 25 Products sold in 1st month6. Feature Selection:
+Top 25 Products sold in 1st weekTop 25 Products sold in 1st month6. 
+
+## Feature Selection:
 From exploratory data analysis, it is observed that the educational holiday variable does not affect the revenue. Therefore, the educational holiday variable is neglected while building the model. The other variables are considered for the model building which is explained in next section.
+
 ## Model Building:
 To build the model, the entire dataset is separated into input and output variables.
-The sample code for the same is shown below
-#consider weekly dataset
-x = weekly.drop('no_of_units',axis=1)
-y = weekly.no_of_units
+
 In order to remove scaling effect from input variable, MinMax scalar is used which will convert every data point between 0 and 1 since there are many categorical variable.
-The sample code for applying MinMax scalar on weekly dataset is as shown below.
-#preprocessing the data i.e., applying min-max scalar
-from sklearn.preprocessing import MinMaxScaler
-#appling scaling for weekly data
-scale_week = MinMaxScaler()
-a = scale_week.fit_transform(x)
-x1 = pd.DataFrame(a,columns=x.columns)
-Output of above code:
-Input variables of weekly data after MinMax transformationThe no. of units variable is considered to be output variable and Log transformation is applied to bring the variable towards the normal distribution.
-Sample code for transforming the output variable using Log transformation is shown below.
-#transforming the output variable
-y1 = np.round(np.log(y))
-Output of the above code:
-Output variables after Log transformationAfter transformation the entire dataset is splitted into train and test data with 80% data as train and 20% data as test.
-Sample code for the same is as shown as below
-#Splitting weekly data into train and test
-from sklearn.model_selection import train_test_split
-x_train, x_test, y_train, y_test = train_test_split(x1,y1,test_size=0.2,random_state=2)
-print('Shape of Splitting')
-print('x_train={}, y_train={}, x_test={}, y_test={}' .format(x_train.shape,y_train.shape,x_test.shape,y_test.shape))
-Output of the above code:
-Shape of splitting of dataWith the above transformed data different models have been built for weekly, monthly and quarterly datasets. Root Mean Squared Error and R2 score is considered as evaluation metric to select the best model.
-All the models which are developed are optimized with hyper parameter tuning using GridSearchCV and evaluation metrics are calculated.
+
+The no. of units variable is considered to be output variable and Log transformation is applied to bring the variable towards the normal distribution.
+
+After transformation the entire dataset is splitted into train and test data with 80% data as train and 20% data as test.
+
+With the above transformed data different models have been built for weekly, monthly and quarterly datasets. Root Mean Squared Error and R2 score is considered as evaluation metric to select the best model. All the models which are developed are optimized with hyper parameter tuning using GridSearchCV and evaluation metrics are calculated.
 Below table shows the RMSE and R2 score for different model used
+
 Evaluation metric results for weekly dataset XG Boost algorithm is considered as final model for weekly dataset.
-Sample code for fitting the model for weekly dataset and predicting for test data is shown below
-#Final Model for weekly dataset
-final_weekly = XGBoostClassifier(n_estimators=500,max_depth=50)
-Fitting and predicting for test data
-final_weekly.fit(x_train,y_train).predict(x_test)
+
 Evaluation metric results for monthly datasetXG Boost algorithm is considered as final model for monthly dataset.
+
 XG Boost algorithm is considered as final model for quarterly dataset.
 
 ## Model Deployment:
