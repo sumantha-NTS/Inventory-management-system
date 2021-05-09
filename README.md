@@ -14,7 +14,7 @@ Poor inventory management can cost you time, money and your business. It is amon
 1. Increased Costs
 2. Unsatisfied Customer
 3. Delayed delivery of orders
-4. Imbalanced inventory \
+4. Imbalanced inventory 
 
 In order to avoid the poor inventory and to upscale the business, the machine learning comes into picture where the analysis is carried out based on the past sales information and with the help of algorithms to predict the future inventory.
 
@@ -42,30 +42,20 @@ Product dataset consists of 1115 product type with cost per unit and time for de
 Sample data for product dataset 
 
 #### Product Revenue dataset:
-Revenue dataset consists of 10,17,209 records with daily data of 1115 products. The dataset consists of other columns like revenue, store status, promotion applied, Generic holiday etc. The total records in revenue dataset will constitutes for 3 years 10months data. The sample data is shown below.
-Sample data for revenue datasetFeature details:
+Revenue dataset consists of 10,17,209 records with daily data of 1115 products. The dataset consists of other columns like revenue, store status, promotion applied, Generic holiday etc. The total records in revenue dataset will constitutes for 3 years 10months data. 
+
+Features are explaination:
 Store Status : It's a categorical feature which explains "Is the store open or closed..?". It has two unique values i.e., open and close.
 Promotion Applied : It's a continuous feature which explains "Is the promotion applied for the particular product or not..?". 
 Generic Holiday : It's a continuous feature which explains "Is the particular day is a general holiday or not..?".
 Educational Holiday : It's a continuous feature which explains "Is the particular day is a educational holiday or not..?".
-4. Exploratory Data Analysis (EDA):
-Exploratory data analysis is importance step predictive analysis as it helps to get insights from the existing dataset.
-Histogram is plotted to understand the distribution of the products with respect to cost per unit and time for delivery.
-Boxplot is considered to understand the behavior of Promotion applied and Education holiday variable with respect to revenue.
-Boxplot is considered to understand the behavior of Store status and Generic holiday variable with respect to revenue.
-From the above visualizations, it is observed that there are outliers present in the data.
-To check how many products have high cost per unit and low time for delivery which in term increase the business.
-Products with cost per unit > 1800 and time for delivery < 6 days To check how many products have low cost per unit and high time for delivery which won't make much business.
-Products with cost per unit <100 and time for delivery > 10 days5. 
 
 ## Feature Engineering:
 In order to build the predictive model, two datasets are merged with respect to product type and 'No of sales' new feature has created which represent the units sold.
+
 i.e., No. of sales = Revenue / cost per unit
-After updating the above features, the sample dataset is shown below.
+
 After merging two datasetIn general, the inventory of the shop will be refreshed every week or month or sometimes it will be quarterly. In order to analyze the data in terms of weekly, monthly and quarterly basis, the entire dataset is converted into weekly, monthly and quarterly aggregated values respectively.
-The sample data for weekly, monthly and quarterly datasets are shown below 
-Sample data of weekly datasetSample data of monthly datasetSample data of quarterly datasetBar plots are used understand the most sold products in weekly, monthly basis.
-Top 25 Products sold in 1st weekTop 25 Products sold in 1st month6. 
 
 ## Feature Selection:
 From exploratory data analysis, it is observed that the educational holiday variable does not affect the revenue. Therefore, the educational holiday variable is neglected while building the model. The other variables are considered for the model building which is explained in next section.
@@ -79,7 +69,9 @@ The no. of units variable is considered to be output variable and Log transforma
 
 After transformation the entire dataset is splitted into train and test data with 80% data as train and 20% data as test.
 
-With the above transformed data different models have been built for weekly, monthly and quarterly datasets. Root Mean Squared Error and R2 score is considered as evaluation metric to select the best model. All the models which are developed are optimized with hyper parameter tuning using GridSearchCV and evaluation metrics are calculated.
+With the above transformed data different models have been built for weekly, monthly and quarterly datasets. 
+
+Root Mean Squared Error and R2 score is considered as evaluation metric to select the best model. All the models which are developed are optimized with hyper parameter tuning using GridSearchCV and evaluation metrics are calculated.
 Below table shows the RMSE and R2 score for different model used
 
 Evaluation metric results for weekly dataset XG Boost algorithm is considered as final model for weekly dataset.
@@ -90,19 +82,11 @@ XG Boost algorithm is considered as final model for quarterly dataset.
 
 ## Model Deployment:
 Finalized model shown in previous section is considered for app deployment.
-The predicted stocks are added with 10% of buffer to compensate for growth in the industry and the population. 
-The Web API has been developed with the help of Flask framework and deployed in Heroku platform.
-Screen-shots of the API is shown below
-First Page: In first page of the API, the user has to select the type of inventory analysis i.e., weekly, monthly or quarterly.
-First Page of the web APIAfter submitting the type of inventory analysis, next page will open with selected type. 
-Sample second page, if the user select "weekly" is shown below
-2nd Page when user selects type as weeklyResults Page : This page shows the result i.e., how much inventory should be present. 
-The input from second page is processed and model will predict the result which is represented in results page.
-The representation of second page is shown below.
-Result pageThe result page has one more option of "Export to Excel". This option will take the input from 2nd page and export the result to the excel of all product type (i.e., 1 to 1115) with the respective predicted inventory.
+The predicted stocks are added with 10% of buffer to compensate for growth in the industry and the population.\
+The Web API has been developed with the help of Flask framework and deployed in Heroku platform.\
 
 ### Link of Web API : 
-
+https://efficient-inventory.herokuapp.com/
 
 ## Conclusion:
 Inventory management is a very tedious process if not done properly may lead to loss in sales, customer dissatisfaction etc. Smart retailers will use predictive analysis which will lead better management of stocks, centralized control which intern increase the productivity.
