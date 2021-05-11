@@ -74,7 +74,16 @@ With the above transformed data different models have been built for weekly, mon
 Root Mean Squared Error and R2 score is considered as evaluation metric to select the best model. All the models which are developed are optimized with hyper parameter tuning using GridSearchCV and evaluation metrics are calculated.
 Below table shows the RMSE and R2 score for different model used
 
-Evaluation metric results for weekly dataset XG Boost algorithm is considered as final model for weekly dataset.
+Evaluation metric results for weekly dataset
+|Sl.No.|      Algorithm      |RMSE|R2 (%)|
+|:----:|:-------------------:|:----------:|:---------:|
+|1.    | Linear Regression   |    0.981   |    3.20   |
+|2.    | KNN                 |    0.984   |    2.60   |
+|3.    | Decision Tree       |    0.277   |    92.20  |
+|4.    | XG Boost            |    0.275   |    92.30  |
+|5.    | Random Forest       |    0.271   |    93.00  |
+
+XG Boost algorithm is considered as final model for weekly dataset.
 
 Evaluation metric results for monthly datasetXG Boost algorithm is considered as final model for monthly dataset.
 
