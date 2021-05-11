@@ -80,13 +80,29 @@ Evaluation metric results for weekly dataset
 |1.    | Linear Regression   |    0.981   |    3.20   |
 |2.    | KNN                 |    0.984   |    2.60   |
 |3.    | Decision Tree       |    0.277   |    92.20  |
-|4.    | XG Boost            |    0.275   |    92.30  |
-|5.    | Random Forest       |    0.271   |    93.00  |
+|4.    | Random Forest       |    0.275   |    92.30  |
+|5.    | XG Boost            |    0.271   |    93.00  |
 
 XG Boost algorithm is considered as final model for weekly dataset.
 
-Evaluation metric results for monthly datasetXG Boost algorithm is considered as final model for monthly dataset.
+Evaluation metric results for monthly dataset
+|Sl.No.|      Algorithm      |RMSE|R2 (%)|
+|:----:|:-------------------:|:----------:|:---------:|
+|1.    | Linear Regression   |    0.961   |    1.30   |
+|2.    | KNN                 |    0.969   |    0.01   |
+|3.    | Decision Tree       |    0.353   |    86.60  |
+|4.    | Random Forest       |    0.340   |    87.80  |
+|5.    | XG Boost            |    0.291   |    91.00  |
+XG Boost algorithm is considered as final model for monthly dataset.
 
+Evaluation metric results for quarterly dataset
+|Sl.No.|      Algorithm      |RMSE|R2 (%)|
+|:----:|:-------------------:|:----------:|:---------:|
+|1.    | Linear Regression   |    0.993   |    1.13   |
+|2.    | KNN                 |    0.948   |    1.92   |
+|3.    | Decision Tree       |    0.724   |    52.80  |
+|4.    | Random Forest       |    0.550   |    72.80  |
+|5.    | XG Boost            |    0.316   |    91.10  |
 XG Boost algorithm is considered as final model for quarterly dataset.
 
 ## Model Deployment:
