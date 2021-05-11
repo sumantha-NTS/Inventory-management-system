@@ -93,6 +93,7 @@ Evaluation metric results for monthly dataset
 |3.    | Decision Tree       |    0.353   |    86.60  |
 |4.    | Random Forest       |    0.340   |    87.80  |
 |5.    | XG Boost            |    0.291   |    91.00  |
+
 XG Boost algorithm is considered as final model for monthly dataset.
 
 Evaluation metric results for quarterly dataset
@@ -103,6 +104,7 @@ Evaluation metric results for quarterly dataset
 |3.    | Decision Tree       |    0.724   |    52.80  |
 |4.    | Random Forest       |    0.550   |    72.80  |
 |5.    | XG Boost            |    0.316   |    91.10  |
+
 XG Boost algorithm is considered as final model for quarterly dataset.
 
 ## Model Deployment:
