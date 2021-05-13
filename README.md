@@ -115,7 +115,7 @@ The Web API has been developed with the help of Flask framework and deployed in 
 ### Link of Web API : 
 https://efficient-inventory.herokuapp.com/
 
-### Check out the blog for detaled explaination :
+### Check out the blog for detailed explaination :
 https://medium.com/@sumanthneechadi/efficient-inventory-management-system-eb48a6520326
 
 ## Conclusion:
