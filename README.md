@@ -115,5 +115,8 @@ The Web API has been developed with the help of Flask framework and deployed in 
 ### Link of Web API : 
 https://efficient-inventory.herokuapp.com/
 
+### Check out the blog for detaled explaination :
+https://medium.com/@sumanthneechadi/efficient-inventory-management-system-eb48a6520326
+
 ## Conclusion:
 Inventory management is a very tedious process if not done properly may lead to loss in sales, customer dissatisfaction etc. Smart retailers will use predictive analysis which will lead better management of stocks, centralized control which intern increase the productivity.
